@@ -1,5 +1,8 @@
-import DailyTeaching from "@/components/DailyTeaching"
+import AboutUsPreview from "@/components/AboutUsPreview"
+import Carousel from '@/components/Carousel'
+import DailyTeaching from '@/components/DailyTeaching'
 import RecentPosts from '@/components/RecentPosts'
+import TeachersPreview from "@/components/TeachersPreview"
 import Image from 'next/image'
 
 const recentPosts = [
@@ -37,13 +40,16 @@ const recentPosts = [
     imageSrc:
       'https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp',
     alt: 'ddsfdsfsdsdf'
-  },
+  }
 ]
 export default function Home () {
   return (
     <>
-      <RecentPosts posts={recentPosts}/>
-      <DailyTeaching teaching="Lorem ipsum" author="Anónimo" />
+      <Carousel />
+      <AboutUsPreview />
+      <TeachersPreview />
+      <RecentPosts posts={recentPosts} />
+      <DailyTeaching teaching='Lorem ipsum' author='Anónimo' />
     </>
   )
 }

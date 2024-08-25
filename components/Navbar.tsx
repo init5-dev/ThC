@@ -1,11 +1,30 @@
 'use client'
 
-import Facebook from "./social-media/Facebook"
-import WhatsApp from "./social-media/WhatsApp"
+import { useEffect, useState } from 'react'
+import Facebook from './social-media/Facebook'
+import WhatsApp from './social-media/WhatsApp'
 
 const Navbar = ({ ...args }) => {
+  const [navBgClass, setNavBgClass] = useState('bg-base-100')
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setNavBgClass('bg-base-100')
+      } else {
+        setNavBgClass('md: dark-glass')
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   return (
-    <div className='navbar text-white bg-base-100'>
+    <div className={`navbar text-white ${navBgClass} z-50 md:fixed md:-mt-4`}>
       <div className='navbar-start'>
         <div className='dropdown'>
           <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden'>
@@ -36,10 +55,15 @@ const Navbar = ({ ...args }) => {
             </li>
             <li>
               <details>
-                <summary><a href="/teachers">Maestros</a></summary>
+                <summary>
+                  <a href='/teachers'>Maestros</a>
+                </summary>
                 <ul className='p-2'>
                   <li>
                     <a href='/teachers/ayya-marajina'>Ayya Marajina</a>
+                  </li>
+                  <li>
+                    <a href='/teachers/ayya-marajina'>Bhikkhu Mihita</a>
                   </li>
                 </ul>
               </details>
@@ -58,14 +82,16 @@ const Navbar = ({ ...args }) => {
               </details>
             </li>
             <li>
-              <a href="/blog">Blog</a>
+              <a href='/blog'>Blog</a>
             </li>
             <li>
-              <a href="/contacto">Contacto</a>
+              <a href='/contacto'>Contacto</a>
             </li>
           </ul>
         </div>
-        <a href="/" className='text-lg btn btn-ghost'>Theravada Cuba</a>
+        <a href='/' className='text-lg btn btn-ghost'>
+          Theravada Cuba
+        </a>
       </div>
       <div className='navbar-center hidden lg:flex'>
         <ul className='menu menu-horizontal px-1'>
@@ -74,6 +100,21 @@ const Navbar = ({ ...args }) => {
           </li>
           <li>
             <a href='/nosotros'>Nosotros</a>
+          </li>
+          <li>
+            <details>
+              <summary>
+                <a href='/teachers'>Maestros</a>
+              </summary>
+              <ul  className={`${navBgClass} p-2 w-40`}>
+                <li>
+                  <a href='/teachers/ayya-marajina'>Ayya Marajina</a>
+                </li>
+                <li>
+                  <a href='/teachers/ayya-marajina'>Bhikkhu Mihita</a>
+                </li>
+              </ul>
+            </details>
           </li>
           <li>
             <details>
@@ -89,14 +130,14 @@ const Navbar = ({ ...args }) => {
             </details>
           </li>
           <li>
-            <a href="/blog">Blog</a>
+            <a href='/blog'>Blog</a>
           </li>
           <li>
-            <a href="/contacto">Contacto</a>
+            <a href='/contacto'>Contacto</a>
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className='navbar-end'>
         <Facebook />
         <WhatsApp />
       </div>
