@@ -1,9 +1,8 @@
-import AboutUsPreview from "@/components/AboutUsPreview"
-import Carousel from '@/components/Carousel'
-import DailyTeaching from '@/components/DailyTeaching'
-import RecentPosts from '@/components/RecentPosts'
-import TeachersPreview from "@/components/TeachersPreview"
-import Image from 'next/image'
+import AboutUsPreview from "@/app/lib/components/AboutUsPreview"
+import Carousel from '@/app/lib/components/Carousel'
+import DailyTeaching from '@/app/lib/components/DailyTeaching'
+import RecentPosts from '@/app/lib/components/RecentPosts'
+import TeachersPreview from "@/app/lib/components/TeachersPreview"
 
 const recentPosts = [
   {

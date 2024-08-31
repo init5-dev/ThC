@@ -12,7 +12,7 @@ const RecentPosts = ({ posts }: RecentPostsProps) => {
       </h1>
       <div className='flex flex-col gap-2 items-center justify-center md:grid md:grid-cols-3 md:gap-8'>
         {posts.map((post, index) => (
-          <div>
+          <div key={index}>
             <PostCard
               title={post.title}
               description={post.description}

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Navbar from '@/components/Navbar'
-import Footer from "@/components/Footer"
+import Navbar from '@/app/lib/components/Navbar'
+import Footer from "@/app/lib/components/Footer"
 
 export const metadata: Metadata = {
   title: 'Theravada Cuba',
@@ -16,9 +16,9 @@ export default function RootLayout ({
   return (
     <html lang='en' data-theme='forest'>
       <body>
-        <main className='flex min-h-screen flex-col items-center justify-start md:p-4'>
+        <main className='flex  flex-col justify-start'>
           <Navbar />
-          <div className='w-full items-start justify-center lg:flex lg:flex-col lg:gap-8 mt-8 px-1 md:px-6'>
+          <div className='w-full min-h-screen items-start justify-start lg:flex lg:flex-col lg:gap-8 mt-8 md:mt-32 px-1 md:px-6'>
             {children}
           </div>
           <Footer />
