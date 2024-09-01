@@ -1,5 +1,5 @@
 import { capitalize } from "../actions/string-manipulation"
-import articles from '@/app/lib/mocks/articles/articles.json'
+import articles from '@/app/lib/mocks/contents/articles.json'
 
 const Breadcrumb = ({ pathname }: { pathname: string }) => {
   const pathTokens = pathname.split('/').slice(1)

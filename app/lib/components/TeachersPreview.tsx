@@ -1,21 +1,5 @@
 import TeacherPreview from './TeacherPreview'
-
-const teachers = [
-  {
-    teacherName: 'Ayya Marajina',
-    shortBio:
-      'Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.',
-    imageSrc:
-      'https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp'
-  },
-  {
-    teacherName: 'Bhikkhu Mihita',
-    shortBio:
-      'Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.',
-    imageSrc:
-      'https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp'
-  }
-]
+import teachers from "@/app/lib/mocks/contents/teachers.json"
 
 const TeachersPreview = () => {
   return (
@@ -25,9 +9,10 @@ const TeachersPreview = () => {
         {teachers.map((teacher, index) => (
           <TeacherPreview
             key={index}
-            teacherName={teacher.teacherName}
-            shortBio={teacher.shortBio}
-            imageSrc={teacher.imageSrc}
+            teacherName={teacher.title}
+            shortBio={teacher.metadescription}
+            imageSrc={teacher.coverImgUrl}
+            imageAlt={teacher.coverImgAlt}
           />
         ))}
       </div>

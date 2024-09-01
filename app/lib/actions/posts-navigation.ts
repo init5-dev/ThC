@@ -1,4 +1,4 @@
-import articles from "../mocks/articles/articles.json"
+import articles from "../mocks/contents/articles.json"
 
 const getArticleIndex = (slug: string) => {
   const article = articles.find(article => article.slug === slug)

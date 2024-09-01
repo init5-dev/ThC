@@ -47,7 +47,7 @@ export default function Home () {
       <Carousel />
       <AboutUsPreview />
       <TeachersPreview />
-      <RecentPosts posts={recentPosts} />
+      <RecentPosts count={6} />
       <DailyTeaching teaching='Lorem ipsum' author='Anónimo' />
     </>
   )
