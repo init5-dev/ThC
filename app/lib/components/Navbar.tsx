@@ -12,7 +12,7 @@ const Navbar = ({ ...args }) => {
       if (window.scrollY === 0) {
         setNavBgClass('bg-base-100')
       } else {
-        setNavBgClass('md: dark-glass')
+        setNavBgClass('dark-glass')
       }
     }
 

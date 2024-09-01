@@ -4,6 +4,7 @@ import getPost from '@/app/lib/actions/get-post'
 import Alert from '@/app/lib/components/Alert'
 import Article from '@/app/lib/components/Article'
 import { usePathname } from 'next/navigation'
+import { prevPostSlug, nextPostSlug } from "@/app/lib/actions/posts-navigation"
 
 const getSlug = (pathname: string) => {
   const urlParts = pathname.split('/')
@@ -19,12 +20,16 @@ const Post = () => {
 
   return post ? (
     <Article
-      title={post?.title}
-      metadescription={post?.metadescription}
-      author={post?.author}
-      created={post?.created}
-      updated={post?.updated}
-      content={post?.content}
+      title={post.title}
+      metadescription={post.metadescription}
+      author={post.author}
+      coverImgUrl={post.coverImgUrl}
+      coverImgAlt={post.coverImgAlt}
+      created={post.created}
+      updated={post.updated}
+      content={post.content}
+      prevSlug={prevPostSlug(post.slug)}
+      nextSlug={nextPostSlug(post.slug)}
     />
   ) : (
     <Alert message='Post no encontrado. :(' />
