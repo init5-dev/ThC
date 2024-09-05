@@ -10,7 +10,7 @@ export interface PostCardProps {
 
 const PostCard = ({ title, description, imageSrc, alt, url }: PostCardProps) => {
   return (
-    <div className='card bg-base-100 image image-full w-full min-h-64 md:h-64 shadow-xl'>
+    <div className='card bg-base-100 image image-full w-full min-h-64 md:h-64 shadow-xl transition-all duration-200 ease-in-out transform element-on-scroll hover:scale-3 hover:scale-105'>
       <figure>
         <Image src={imageSrc} alt={alt} width={640} height={480}/>
       </figure>

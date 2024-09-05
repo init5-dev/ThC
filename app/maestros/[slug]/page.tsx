@@ -5,6 +5,7 @@ import Alert from '@/app/lib/components/Alert'
 import Article from '@/app/lib/components/Article'
 import { usePathname } from 'next/navigation'
 import { prevPostSlug, nextPostSlug } from "@/app/lib/actions/posts-navigation"
+import getTeacher from "@/app/lib/actions/get-teacher"
 
 const getSlug = (pathname: string) => {
   const urlParts = pathname.split('/')
@@ -16,20 +17,20 @@ const getSlug = (pathname: string) => {
 const Post = () => {
   const pathname = usePathname()
   const slug = getSlug(pathname)
-  const post = getPost(slug)
+  const teacher = getTeacher(slug)
 
-  return post ? (
+  return teacher ? (
     <Article
-      title={post.title}
-      metadescription={post.metadescription}
-      author={post.author}
-      coverImgUrl={post.coverImgUrl}
-      coverImgAlt={post.coverImgAlt}
-      created={post.created}
-      updated={post.updated}
-      content={post.content}
-      prevSlug={prevPostSlug(post.slug)}
-      nextSlug={nextPostSlug(post.slug)}
+      title={teacher.title}
+      metadescription={teacher.metadescription}
+      author={undefined}
+      coverImgUrl={teacher.coverImgUrl}
+      coverImgAlt={teacher.coverImgAlt}
+      created={teacher.created}
+      updated={teacher.updated}
+      content={teacher.content}
+      prevSlug={undefined}
+      nextSlug={undefined}
     />
   ) : (
     <Alert message='Post no encontrado. :(' />

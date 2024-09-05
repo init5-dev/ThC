@@ -7,3 +7,35 @@
   backdrop-filter: blur(10px); 
   -webkit-backdrop-filter: blur(10px); 
 }
+
+@keyframes slide-in-from-left {
+  0% {
+    transform: translateX(-100vw); 
+    opacity: 0; 
+  }
+  100% {
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+@layer utilities {
+  .animate-slide-in-from-left-0 {
+    animation: slide-in-from-left 0.65s ease-out; 
+  }
+  .animate-slide-in-from-left-1 {
+    animation: slide-in-from-left 0.75s ease-out; 
+  }
+  .animate-slide-in-from-left-2 {
+    animation: slide-in-from-left 0.85s ease-out; 
+  }
+  .animate-slide-in-from-left-3 {
+    animation: slide-in-from-left 0.95s ease-out; 
+  }
+  .animate-slide-in-from-left-4 {
+    animation: slide-in-from-left 1.05s ease-out; 
+  }
+  .animate-slide-in-from-left-5 {
+    animation: slide-in-from-left 1.15s ease-out; 
+  }
+}

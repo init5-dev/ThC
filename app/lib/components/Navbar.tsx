@@ -68,7 +68,7 @@ const Navbar = ({ ...args }) => {
                 </ul>
               </details>
             </li>
-            <li>
+            {/* <li>
               <details>
                 <summary>Recursos</summary>
                 <ul className='p-2'>
@@ -80,7 +80,7 @@ const Navbar = ({ ...args }) => {
                   </li>
                 </ul>
               </details>
-            </li>
+            </li> */}
             <li>
               <a href='/blog'>Blog</a>
             </li>
@@ -116,7 +116,7 @@ const Navbar = ({ ...args }) => {
               </ul>
             </details>
           </li>
-          <li>
+          {/* <li>
             <details>
               <summary>Recursos</summary>
               <ul className='p-2 w-40'>
@@ -128,7 +128,7 @@ const Navbar = ({ ...args }) => {
                 </li>
               </ul>
             </details>
-          </li>
+          </li> */}
           <li>
             <a href='/blog'>Blog</a>
           </li>
