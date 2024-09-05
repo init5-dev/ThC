@@ -7,7 +7,7 @@ export interface DailyTeachingProps {
 
 const DailyTeaching = ({ teaching: text, author }: DailyTeachingProps) => {
   return (
-    <section className='w-full'>
+    <section className='w-full mb-12'>
       <h1 className='text-white text-3xl w-full text-center my-8'>
         Enseñanza del día
       </h1>

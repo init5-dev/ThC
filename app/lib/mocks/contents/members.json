@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Maricela",
+    "role": "Coordinadora",
+    "src": "/Maricela.jpg"
+  },
+  {
+    "name": "Karla",
+    "role": "Miembro fundador",
+    "src": "/Karla.jpg"
+  },
+  {
+    "name": "Baby",
+    "role": "Miembro fundador",
+    "src": "/Baby.jpg"
+  },
+  {
+    "name": "Adán",
+    "role": "Miembro fundador",
+    "src": "/Adán.jpg"
+  },
+  {
+    "name": "Douglas",
+    "role": "Relaciones",
+    "src": "/Douglas.jpg"
+  },
+  {
+    "name": "Yasmany Chuffat",
+    "role": "Miembro fundador",
+    "src": "/Yasmany.jpg"
+  },
+  {
+    "name": "Nelson Ochagavía",
+    "role": "Desarrollador y webmaster",
+    "src": "/Nelson.jpg"
+  }
+]

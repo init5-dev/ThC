@@ -8,8 +8,8 @@ const RecentPosts = ({count} : {count: number}) => {
   const recentPosts = count < posts.length ? posts.slice(0, count) : posts
 
   return (
-    <section className='w-full'>
-      <h1 className='text-white text-3xl w-full text-center my-8'>
+    <section className='w-full mb-12'>
+      <h1 className='text-white text-3xl w-full text-center mb-8'>
         Artículos recientes
       </h1>
       <div className='flex flex-col gap-2 items-center justify-center md:grid md:grid-cols-3 md:gap-8'>

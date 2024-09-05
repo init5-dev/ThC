@@ -25,7 +25,19 @@ export interface ArticleProps {
 const mdStyle = {
   backgroundColor: 'transparent',
   fontSize: 14,
-  color: 'oklch(var(--nc))'
+  color: 'oklch(var(--nc))',
+  table: {
+    backgroundColor: 'transparent',
+    borderCollapse: 'collapse',
+  },
+  th: {
+    backgroundColor: 'transparent',
+    border: '1px solid currentColor',
+  },
+  td: {
+    backgroundColor: 'transparent',
+    border: '1px solid currentColor',
+  },
 }
 
 const Article = ({
@@ -85,7 +97,7 @@ const Article = ({
           className='md:px-20 pb-4 text-justify'
           style={mdStyle}
         />
-        <MarkdownPreview
+        {/* <MarkdownPreview
           source={`Publicado el ${formatDate(
             created
           )}\n\nEditado el ${formatDate(updated)}`}
@@ -94,7 +106,7 @@ const Article = ({
             ...mdStyle,
             textAlign: 'right'
           }}
-        />
+        /> */}
       </section>
       <SocialShare postUrl={currentUrl} />
       <div className='flex gap-4 my-8 justify-center'>

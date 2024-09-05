@@ -4,8 +4,8 @@ import teachers from '@/app/lib/mocks/contents/teachers.json'
 
 const TeachersPreview = () => {
   return (
-    <section>
-      <h1 className='text-white text-3xl w-full text-center my-8'>Maestros</h1>
+    <section className="mb-12">
+      <h1 className='text-white text-3xl w-full text-center mb-8'>Maestros</h1>
       <div className='flex flex-col md:flex-row gap-4'>
         {teachers.map((teacher, index) => (
           <div key={index} className={`animate-slide-in-from-left-${index}`}>

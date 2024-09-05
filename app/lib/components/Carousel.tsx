@@ -1,61 +1,67 @@
-import Image from 'next/image'
+'use client'
+
+import { useState } from 'react';
+import Image from 'next/image';
 
 const Carousel = () => {
-  return (
-    <div className='carousel -mx-1 md:-mx-10 w-[100vw] h-96'>
-      <div id='slide1' className='carousel-item relative w-full'>
-        <Image
-          src='/country-summer-empty-forest-road.jpg'
-          alt='dssd'
-          width={2048}
-          height={2048}
-          className='w-full object-cover'
-        />
-        <div className='absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between'>
-          <a href='#slide4' className='btn btn-circle'>
-            ❮
-          </a>
-          <a href='#slide2' className='btn btn-circle'>
-            ❯
-          </a>
-        </div>
-      </div>
-      <div id='slide2' className='carousel-item relative w-full'>
-        <Image
-          src='/Buddha-1.jpg'
-          alt='dssd'
-          width={2048}
-          height={2048}
-          className='w-full object-cover'
-        />
-        <div className='absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between'>
-          <a href='#slide1' className='btn btn-circle'>
-            ❮
-          </a>
-          <a href='#slide3' className='btn btn-circle'>
-            ❯
-          </a>
-        </div>
-      </div>
-      <div id='slide3' className='carousel-item relative w-full'>
-        <Image
-          src='/Theravada-monk.webp'
-          alt='dssd'
-          width={2048}
-          height={2048}
-          className='w-full object-cover'
-        />
-        <div className='absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between'>
-          <a href='#slide2' className='btn btn-circle'>
-            ❮
-          </a>
-          <a href='#slide4' className='btn btn-circle'>
-            ❯
-          </a>
-        </div>
-      </div>
-    </div>
-  )
-}
+  const [currentSlide, setCurrentSlide] = useState(1);
+  
+  const slides = [
+    {
+      id: 'slide1',
+      src: '/buddha-forest.jpg',
+      alt: 'Estatua del Buddha en el bosque',
+    },
+    {
+      id: 'slide2',
+      src: '/habana-vieja.jpg',
+      alt: 'La Habana',
+    },
+    {
+      id: 'slide3',
+      src: '/monk-1.jpg',
+      alt: 'Monje theravada en vihara antigua',
+    }
+  ];
+  
+  const nextSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide % slides.length) + 1);
+  };
+  
+  const prevSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide - 2 + slides.length) % slides.length + 1);
+  };
 
-export default Carousel
+  return (
+    <div className='relative w-[100vw] h-96 overflow-hidden -mx-1 md:-mx-16 mb-12'>
+      {slides.map((slide, index) => (
+        <div
+          key={slide.id}
+          className={`absolute w-full h-full transition-opacity duration-700 ${index + 1 === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+        >
+          <Image
+            src={slide.src}
+            alt={slide.alt}
+            layout='fill'
+            objectFit='cover'
+            className='w-full h-full'
+          />
+        </div>
+      ))}
+      <button
+        onClick={prevSlide}
+        className='absolute left-5 top-1/2 transform -translate-y-1/2 btn btn-circle'
+      >
+        ❮
+      </button>
+      <button
+        onClick={nextSlide}
+        className='absolute right-5 top-1/2 transform -translate-y-1/2 btn btn-circle'
+      >
+        ❯
+      </button>
+    </div>
+  );
+};
+
+export default Carousel;
