@@ -1,16 +1,51 @@
+import Image from 'next/image'
 import React from 'react'
 
 const AboutUs = () => {
+  const members = [
+    {
+      name: 'Maricela',
+      role: 'Coordinadora', 
+      src: '/Maricela.jpg'
+    },
+    {
+      name: 'Karla',
+      role: 'Miembro fundador', 
+      src: '/Karla.jpg'
+    }, 
+    {
+      name: 'Baby',
+      role: 'Miembro fundador', 
+      src: '/Baby.jpg'
+    },
+    {
+      name: 'Adán',
+      role: 'Miembro fundador', 
+      src: '/Adán.jpg'
+    },
+    {
+      name: 'Douglas',
+      role: 'Relaciones', 
+      src: '/Douglas.jpg'
+    }, 
+    {
+      name: 'Yasmany',
+      role: 'Miembro fundador', 
+      src: '/Yasmany.jpg'
+    },
+  ]
   return (
     <div className='flex flex-col items-center justify-center min-h-screen  bg-base-200 p-8 text-sm text-justify'>
       <div>
         <h1 className='text-4xl font-bold text-center mb-8'>Nosotros</h1>
 
-        <div className='grid lg:grid-cols-2 gap-8 mb-6'>
-          <img
-            src='https://via.placeholder.com/400'
+        <div className='grid lg:grid-cols-2 gap-8 mb-16'>
+          <Image
+            src='/Dhammacari - Encuentro Vesak.jpeg'
             alt='Nuestro equipo'
             className='rounded-lg shadow-md'
+            width={640}
+            height={480}
           />
 
           <div>
@@ -56,41 +91,39 @@ const AboutUs = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center mb-6">
-        <h2 className='text-2xl font-semibold text-center mb-4'>
-          Nuestro Equipo
-        </h2>
-        <div className='md:grid md:grid-cols-3 gap-8 justify-center'>
-          {['Nelson', 'María', 'Carlos'].map((name, index) => (
-            <div
-              key={index}
-              className='card w-60 bg-base-100 shadow-xl text-center transition-all duration-200 ease-in-out transform element-on-scroll hover:scale-3 hover:scale-105'
-            >
-              <div className='avatar mt-4'>
-                <div className='w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mx-auto'>
-                  <img
-                    src='https://via.placeholder.com/150'
-                    alt={`Miembro del equipo ${index + 1}`}
-                  />
+        <div className='flex flex-col items-center justify-center mb-16'>
+          <h2 className='text-2xl font-semibold text-center mb-4'>
+            Nuestro Equipo
+          </h2>
+          <div className='md:grid md:grid-cols-3 gap-8 justify-center'>
+            {members.map(({name, role, src}, index) => (
+              <div
+                key={index}
+                className='card m-4 w-60 bg-base-100 shadow-xl text-center transition-all duration-200 ease-in-out transform element-on-scroll hover:scale-3 hover:scale-105'
+              >
+                <div className='avatar mt-4'>
+                  <div className='w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mx-auto'>
+                    <Image
+                      src={src}
+                      alt={`${role}`}
+                      width={320}
+                      height={240}
+                    />
+                  </div>
+                </div>
+                <div className='card-body flex flex-col items-center justify-center'>
+                  <h3 className='card-title text-lg text-center'>{name}</h3>
+                  <p className='text-center'>
+                    {role}
+                  </p>
                 </div>
               </div>
-              <div className='card-body flex flex-col items-center justify-center'>
-                <h3 className='card-title text-lg text-center'>{name}</h3>
-                <p className='text-center'>
-                  {name === 'Nelson'
-                    ? 'Desarrollador Web'
-                    : name === 'María'
-                    ? 'Diseñadora Gráfica'
-                    : 'Especialista en SEO'}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
         </div>
 
-        <div>
-          <div className='mt-12'>
+        <div className="mb-16">
+          <div>
             <h2 className='text-2xl font-semibold text-center mb-4'>
               Nuestra Misión
             </h2>
