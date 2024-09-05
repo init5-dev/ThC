@@ -6,6 +6,7 @@ import Article from '@/app/lib/components/Article'
 import { usePathname } from 'next/navigation'
 import { prevPostSlug, nextPostSlug } from "@/app/lib/actions/posts-navigation"
 import getTeacher from "@/app/lib/actions/get-teacher"
+import Biography from "@/app/lib/components/Biography"
 
 const getSlug = (pathname: string) => {
   const urlParts = pathname.split('/')
@@ -20,17 +21,13 @@ const Post = () => {
   const teacher = getTeacher(slug)
 
   return teacher ? (
-    <Article
-      title={teacher.title}
-      metadescription={teacher.metadescription}
-      author={undefined}
-      coverImgUrl={teacher.coverImgUrl}
-      coverImgAlt={teacher.coverImgAlt}
-      created={teacher.created}
-      updated={teacher.updated}
+    <Biography
+      name={teacher.title}
+      role="Maestro"
+      description={teacher.metadescription}
+      profileImgUrl={teacher.coverImgUrl}
+      profileImgAlt={teacher.coverImgAlt}
       content={teacher.content}
-      prevSlug={undefined}
-      nextSlug={undefined}
     />
   ) : (
     <Alert message='Post no encontrado. :(' />

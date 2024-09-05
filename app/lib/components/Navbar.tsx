@@ -56,14 +56,14 @@ const Navbar = ({ ...args }) => {
             <li>
               <details>
                 <summary>
-                  <a href='/teachers'>Maestros</a>
+                  <a href='/maestros'>Maestros</a>
                 </summary>
                 <ul className='p-2'>
                   <li>
-                    <a href='/teachers/ayya-marajina'>Ayya Marajina</a>
+                    <a href='/maestros/ayya-marajina'>Ayya Marajina</a>
                   </li>
                   <li>
-                    <a href='/teachers/ayya-marajina'>Bhikkhu Mihita</a>
+                    <a href='/maestros/bhikkhu-mihita-suginasiri'>Bhikkhu Mihita</a>
                   </li>
                 </ul>
               </details>
@@ -104,14 +104,14 @@ const Navbar = ({ ...args }) => {
           <li>
             <details>
               <summary>
-                <a href='/teachers'>Maestros</a>
+                <a href='/maestros'>Maestros</a>
               </summary>
               <ul  className={`${navBgClass} p-2 w-40`}>
                 <li>
-                  <a href='/teachers/ayya-marajina'>Ayya Marajina</a>
+                  <a href='/maestros/ayya-marajina'>Ayya Marajina</a>
                 </li>
                 <li>
-                  <a href='/teachers/ayya-marajina'>Bhikkhu Mihita</a>
+                  <a href='/maestros/bhikkhu-mihita-suginasiri'>Bhikkhu Mihita</a>
                 </li>
               </ul>
             </details>

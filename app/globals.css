@@ -8,6 +8,10 @@
   -webkit-backdrop-filter: blur(10px); 
 }
 
+.transition-hover {
+@apply transition-all duration-200 ease-in-out transform hover:scale-105
+}
+
 @keyframes slide-in-from-left {
   0% {
     transform: translateX(-100vw); 
@@ -37,5 +41,16 @@
   }
   .animate-slide-in-from-left-5 {
     animation: slide-in-from-left 1.15s ease-out; 
+  }
+}
+
+@layer components {
+  .element-on-scroll {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+
+  .element-on-scroll.visible {
+    opacity: 1;
   }
 }

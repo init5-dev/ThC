@@ -1,20 +1,16 @@
 'use client'
 
 import MarkdownPreview from '@uiw/react-markdown-preview'
-import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import SocialShare from './SocialShare'
-import { formatDate } from '../actions/string-manipulation'
-import Breadcrumb from './Breadcrumb'
 import Image from 'next/image'
-import PostCard from './PostCard'
 
 export interface BiographyProps {
-  title: string
-  metadescription: string
-  author: string
-  coverImgUrl: string
-  coverImgAlt: string
+  name: string
+  role: string
+  description: string
+  profileImgUrl: string
+  profileImgAlt: string
   content: string
 }
 
@@ -25,81 +21,52 @@ const mdStyle = {
 }
 
 const Biography = ({
-  title,
-  metadescription,
-  author,
-  coverImgUrl,
-  coverImgAlt,
+  name,
+  role,
+  description,
+  profileImgUrl,
+  profileImgAlt,
   content
 }: BiographyProps) => {
-  const pathname = usePathname()
-  const [currentUrl, setCurrentURL] = useState('')
-  const [currentBaseUrl, setCurrentBaseUrl] = useState('')
   const [screenSize, setScreenSite] = useState({ width: 0, height: 0 })
 
   useEffect(() => {
-    setCurrentURL(new URL(pathname, window.location.origin).href)
     setScreenSite({
       width: window.innerWidth,
       height: window.innerHeight
     })
-  }, [pathname])
-
-  useEffect(() => {
-    const urlParts = currentUrl.split('/')
-    const baseUrl = urlParts.slice(0, urlParts.length - 1).join('/') + '/'
-    setCurrentBaseUrl(baseUrl)
-  }, [currentUrl])
+  }, [])
 
   return (
     <article>
-      <header className='flex flex-col justify-center items-center'>
-        <h1 className='text-3xl font-bold text-center text-neutral-content'>
-          {title}
-        </h1>
-        <p className='text-xl text-center text-neutral-content mb-8'>
-          <strong>Por</strong> {author}
-        </p>
-        <meta name='description' content={metadescription} />
+      <header className='flex flex-col items-center justify-center'>
+        <h1 className='text-3xl font-bold text-neutral-content'>{name}</h1>
+        <p className='text-neutral-content'>{role}</p>
       </header>
-      <SocialShare postUrl={currentUrl} />
-      <Image
-        src={coverImgUrl}
-        alt={coverImgAlt}
-        height={screenSize.height}
-        width={screenSize.width}
-        className='my-8 md:px-20'
-      />
-      <section className='my-8'>
+      <section className='mb-8'>
+        <div className='flex flex-col md:flex-row items-center md:justify-center mb-8 px-20'>
+          <Image
+            src={profileImgUrl}
+            alt={profileImgAlt}
+            height={240}
+            width={180}
+            className='my-8 rounded-full'
+            style={{
+              width: 160,
+              height: 160
+            }}
+          />
+          <div className='md:ml-8 text-center md:text-left flex flex-col items-center justify-center'>
+            <p className='text-sm text-neutral-content'>{description}</p>
+          </div>
+        </div>
         <MarkdownPreview
           source={content}
           className='md:px-20 pb-4 text-justify'
           style={mdStyle}
         />
-        <MarkdownPreview
-          source={`Publicado el ${formatDate(
-            created
-          )}\n\nEditado el ${formatDate(updated)}`}
-          className='md:px-20 pb-4 text-justify'
-          style={{
-            ...mdStyle,
-            textAlign: 'right'
-          }}
-        />
       </section>
-      <SocialShare postUrl={currentUrl} />
-      <div className='flex gap-4 my-8 justify-center'>
-        {prevSlug && (
-          <button className='btn btn-ghost'>
-            <a href={currentBaseUrl + prevSlug}>{'<'} Anterior </a>
-          </button>
-        )}
-        {nextSlug && (
-          <button className='btn btn-ghost'>
-            <a href={currentBaseUrl + nextSlug}>Siguiente {'>'}</a>
-          </button>
-        )}
-      </div>
+      <SocialShare postUrl={window.location.href} />
     </article>
   )
 }
