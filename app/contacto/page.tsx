@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { TextareaHTMLAttributes, useState } from 'react'
 import emailjs from 'emailjs-com'
 
 const Contact = () => {
@@ -11,11 +11,12 @@ const Contact = () => {
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
+  const handleChange = (e: { target: { name: any; value: any } }) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  
 
-  const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     emailjs.send(
