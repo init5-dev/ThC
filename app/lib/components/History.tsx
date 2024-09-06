@@ -3,7 +3,7 @@ import Image from "next/image"
 const History = () => {
   return <div className='grid lg:grid-cols-2 gap-8 mb-16'>
   <Image
-    src='/Dhammacari - Encuentro Vesak.jpeg'
+    src='/Theravada-Cuba-Encuentro-Vesak-2023.jpeg'
     alt='Nuestro equipo'
     className='rounded-lg shadow-md'
     width={640}
