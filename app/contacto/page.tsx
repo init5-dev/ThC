@@ -39,13 +39,13 @@ const Contact = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center md:px-20">
+    <div className="min-h-screen flex items-center justify-center lg:px-20">
       <div className="w-full p-8">
         <h1 className="text-4xl font-bold text-center mb-8">Contacto</h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-center md:text-left">¿Tienes preguntas o comentarios?</h2>
+            <h2 className="text-2xl font-semibold text-center lg:text-left">¿Tienes preguntas o comentarios?</h2>
             <p className="leading-relaxed">
               Nos encantaría escuchar de ti. Ya sea que tengas preguntas sobre nuestras actividades,
               quieras saber más sobre el budismo Theravada, o simplemente quieras saludarnos,

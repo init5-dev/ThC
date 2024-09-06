@@ -24,7 +24,7 @@ const Navbar = ({ ...args }) => {
   }, [])
 
   return (
-    <div className={`navbar text-white ${navBgClass} z-50 md:fixed`}>
+    <div className={`navbar text-white ${navBgClass} z-50 lg:fixed`}>
       <div className='navbar-start'>
         <div className='dropdown'>
           <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden'>

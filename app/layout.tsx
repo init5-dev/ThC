@@ -21,7 +21,7 @@ export default function RootLayout ({
       <body>
         <main className='flex flex-col justify-start'>
           <Navbar />
-          <div className='w-full min-h-screen items-start justify-start lg:flex lg:flex-col lg:gap-8 md:mt-24 px-1 md:px-16'>
+          <div className='w-full min-h-screen items-start justify-start lg:flex lg:flex-col lg:gap-8 lg:mt-24 px-1 lg:px-16'>
             {children}
           </div>
           <Footer />

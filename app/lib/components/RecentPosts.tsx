@@ -12,7 +12,7 @@ const RecentPosts = ({count} : {count: number}) => {
       <h1 className='text-white text-3xl w-full text-center mb-8'>
         Artículos recientes
       </h1>
-      <div className='flex flex-col gap-2 items-center justify-center md:grid md:grid-cols-3 md:gap-8'>
+      <div className='flex flex-col gap-2 items-center justify-center lg:grid lg:grid-cols-3 lg:gap-8'>
         {recentPosts.map((post, index) => (
           <div key={index}>
             <PostCard

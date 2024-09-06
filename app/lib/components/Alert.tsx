@@ -1,6 +1,6 @@
 const Alert = ({ message }: { message: string }) => {
   return (
-    <div role='alert' className='alert alert-error md:w-[50vw] md:ml-[25vw]'>
+    <div role='alert' className='alert alert-error lg:w-[50vw] lg:ml-[25vw]'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         className='h-6 w-6 shrink-0 stroke-current'

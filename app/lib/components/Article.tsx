@@ -89,19 +89,19 @@ const Article = ({
         alt={coverImgAlt}
         height={screenSize.height}
         width={screenSize.width}
-        className='my-8 md:px-20'
+        className='my-8 lg:px-20'
       />
       <section className='my-8'>
         <MarkdownPreview
           source={content}
-          className='md:px-20 pb-4 text-justify'
+          className='lg:px-20 pb-4 text-justify'
           style={mdStyle}
         />
         {/* <MarkdownPreview
           source={`Publicado el ${formatDate(
             created
           )}\n\nEditado el ${formatDate(updated)}`}
-          className='md:px-20 pb-4 text-justify'
+          className='lg:px-20 pb-4 text-justify'
           style={{
             ...mdStyle,
             textAlign: 'right'
