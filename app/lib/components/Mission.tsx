@@ -1,5 +1,5 @@
 const Mission = () => {
-  return <div className="mb-16">
+  return <div className="mb-8">
   <div>
     <h2 className='text-3xl text-center mb-4'>
       Nuestra misión

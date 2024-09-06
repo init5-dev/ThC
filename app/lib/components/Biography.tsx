@@ -40,11 +40,11 @@ const Biography = ({
   return (
     <article>
       <header className='flex flex-col items-center justify-center'>
-        <h1 className='text-3xl font-bold text-neutral-content'>{name}</h1>
+        <h1 className='text-3xl font-bold text-neutral-content text-center'>{name}</h1>
         <p className='text-neutral-content'>{role}</p>
       </header>
       <section className='mb-8'>
-        <div className='flex flex-col md:flex-row items-center md:justify-center mb-8 px-20'>
+        <div className='flex flex-col md:flex-row items-center md:justify-center mb-8 md:px-20'>
           <Image
             src={profileImgUrl}
             alt={profileImgAlt}
@@ -56,7 +56,7 @@ const Biography = ({
               height: 160
             }}
           />
-          <div className='md:ml-8 text-center md:text-left flex flex-col items-center justify-center'>
+          <div className='md:ml-8 text-justify flex flex-col items-center justify-center'>
             <p className='text-sm text-neutral-content'>{description}</p>
           </div>
         </div>
