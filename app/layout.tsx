@@ -5,7 +5,10 @@ import Footer from "@/app/lib/components/Footer"
 
 export const metadata: Metadata = {
   title: 'Theravada Cuba',
-  description: 'Official website of the Theravada Cuba (ThC) Community'
+  description: 'Sitio web oficial de la comunidad Theravada Cuba',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout ({
