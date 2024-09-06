@@ -6,7 +6,7 @@ import Mission from "../lib/components/Mission"
 
 const AboutUs = () => {
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen w-full p-8 text-sm text-justify'>
+    <div className='flex flex-col items-center justify-center min-h-screen w-full md:p-8 text-sm text-justify'>
       <div>
         <h1 className='text-4xl font-bold text-center mb-8'>Nosotros</h1>
         <History />
