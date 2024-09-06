@@ -5,7 +5,7 @@ const History = () => {
   <Image
     src='/Theravada-Cuba-Encuentro-Vesak-2023.jpeg'
     alt='Nuestro equipo'
-    className='rounded-lg shadow-md mb-4 lg:mb-0'
+    className='rounded-lg shadow-md mb-4 lg:mb-0 w-full'
     width={640}
     height={480}
   />

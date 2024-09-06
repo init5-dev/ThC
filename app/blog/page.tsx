@@ -12,7 +12,7 @@ const Blog = () => {
   return (
     <div>
       <h1 className='text-white text-3xl w-full text-center my-8'>Blog</h1>
-      <section className='flex flex-col items-center justify-center md:grid md:grid-cols-3 gap-2 md:gap-8'>
+      <section className='flex flex-col items-center justify-center lg:grid lg:grid-cols-3 gap-2 lg:gap-8'>
         {posts.map((post, index) => (
           <PostCard
             key={index}

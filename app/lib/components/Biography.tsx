@@ -44,7 +44,7 @@ const Biography = ({
         <p className='text-neutral-content'>{role}</p>
       </header>
       <section className='mb-8'>
-        <div className='flex flex-col md:flex-row items-center md:justify-center mb-8 md:px-20'>
+        <div className='flex flex-col lg:flex-row items-center lg:justify-center mb-8 lg:px-20'>
           <Image
             src={profileImgUrl}
             alt={profileImgAlt}
@@ -56,13 +56,13 @@ const Biography = ({
               height: 160
             }}
           />
-          <div className='md:ml-8 text-justify flex flex-col items-center justify-center'>
+          <div className='lg:ml-8 text-justify flex flex-col items-center justify-center'>
             <p className='text-sm text-neutral-content'>{description}</p>
           </div>
         </div>
         <MarkdownPreview
           source={content}
-          className='md:px-20 pb-4 text-justify'
+          className='lg:px-20 pb-4 text-justify'
           style={mdStyle}
         />
       </section>

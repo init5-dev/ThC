@@ -10,7 +10,7 @@ const Mission = () => {
       Sendero, contribuimos al bienestar y armonía de todos los seres.
     </p>
 
-    <div className='grid md:grid-cols-2 gap-8 mt-8'>
+    <div className='grid lg:grid-cols-2 gap-8 mt-8'>
       {[
         'Compartir el Dhamma',
         'Cultivar una vida ética',

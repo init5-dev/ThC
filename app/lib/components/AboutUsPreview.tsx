@@ -6,7 +6,7 @@ const AboutUsPreview = () => {
       <h2 className='text-3xl font-semibold text-center mb-8'>
         ¡Bienvenido a Theravada Cuba!
       </h2>
-      <div className='flex flex-col md:flex-row items-center justify-center gap-8'>
+      <div className='flex flex-col lg:flex-row items-center justify-center gap-8'>
         <Image
           src='/Theravada-Cuba-Encuentro-Vesak-2023.jpeg'
           alt='Theravada Cuba - Encuentro Vesak 2023'
