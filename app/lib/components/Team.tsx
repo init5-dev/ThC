@@ -2,7 +2,7 @@ import Image from "next/image"
 import members from '@/app/lib/mocks/contents/members.json'
 
 const Team = () => {
-  return <div className='flex flex-col items-center justify-center mb-16'>
+  return <div className='flex flex-col items-center justify-center mb-8'>
   <h2 className='text-2xl font-semibold text-center mb-4'>
     Nuestro Equipo
   </h2>

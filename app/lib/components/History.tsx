@@ -1,11 +1,11 @@
 import Image from "next/image"
 
 const History = () => {
-  return <div className='grid lg:grid-cols-2 gap-8 mb-16'>
+  return <div className='lg:grid lg:grid-cols-2 lg:gap-8 mb-8'>
   <Image
     src='/Theravada-Cuba-Encuentro-Vesak-2023.jpeg'
     alt='Nuestro equipo'
-    className='rounded-lg shadow-md'
+    className='rounded-lg shadow-md mb-4 lg:mb-0'
     width={640}
     height={480}
   />
