@@ -11,7 +11,7 @@ export default function Home () {
       <AboutUsPreview />
       <TeachersPreview />
       <RecentPosts count={6} />
-      <DailyTeaching teaching='Lorem ipsum' author='Anónimo' />
+      {/* <DailyTeaching teaching='Lorem ipsum' author='Anónimo' /> */}
     </>
   )
 }
