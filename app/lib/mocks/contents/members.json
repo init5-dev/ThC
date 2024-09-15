@@ -31,7 +31,12 @@
   },
   {
     "name": "Nelson Ochagavía",
-    "role": "Desarrollador y webmaster",
+    "role": "Fundador & Web Dev",
     "src": "/Nelson.jpg"
+  },
+  {
+    "name": "Sudassi Anagaraka",
+    "role": "Miembro",
+    "src": "/Sudassi.jpg"
   }
 ]
