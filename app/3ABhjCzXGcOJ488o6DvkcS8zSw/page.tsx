@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 
 const Page = () => {
   const [data, setData] = useState(null)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     const sendPostRequest = async () => {
@@ -24,7 +24,7 @@ const Page = () => {
         const result = await res.json()
         setData(result)
       } catch (err) {
-        setError(err)
+        setError((err as Error).message)
       }
     }
 
