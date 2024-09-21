@@ -85,6 +85,9 @@ const Navbar = ({ ...args }) => {
               <a href='/donaciones' className="text-yellow-500">Donaciones</a>
             </li>
             <li>
+              <a href='/blog'>Blog</a>
+            </li>
+            <li>
               <a href='/contacto'>Contacto</a>
             </li>
           </ul>
@@ -132,6 +135,9 @@ const Navbar = ({ ...args }) => {
           <li>
             <a href='/donaciones' className="text-yellow-500">Donaciones</a>
           </li>
+          <li>
+              <a href='/blog'>Blog</a>
+            </li>
           <li>
             <a href='/contacto'>Contacto</a>
           </li>

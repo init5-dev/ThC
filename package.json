@@ -12,13 +12,17 @@
     "@uiw/react-markdown-preview": "^5.1.2",
     "emailjs-com": "^3.2.0",
     "mongoose": "^8.6.2",
+    "negotiator": "^0.6.3",
     "next": "14.2.6",
-    "react": "^18",
+    "nodemailer": "^6.9.15",
+    "react": "^18.3.1",
     "react-dom": "^18",
+    "react-intl": "^6.6.8",
     "react-share": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.16",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "daisyui": "^4.12.10",

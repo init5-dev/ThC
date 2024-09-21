@@ -1,18 +1,36 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
-const {MONGODB_URI} = process.env
-// const { MONGODB_LOCAL_URI } = process.env
+const { MONGODB_URI } = process.env;
+const { MONGODB_LOCAL_URI } = process.env
 
-export const connectDb = async () => {
+interface ConnectionResult {
+  connection?: mongoose.Connection;
+  error?: {
+    status: number;
+    message: string;
+  };
+}
+
+export const connectDb = async (): Promise<ConnectionResult> => {
   try {
-    const { connection } = await mongoose.connect(MONGODB_URI as string)
-    // const { connection } = await mongoose.connect(MONGODB_LOCAL_URI as string)
+    const uri = MONGODB_URI as string;
+    
+    const { connection } = await mongoose.connect(uri);
 
     if (connection.readyState === 1) {
-      return Promise.resolve(true)
+      return { connection };
+    } else {
+      throw new Error('Failed to connect to the database');
     }
-  } catch (error) {
-    console.error((error as Error).message)
-    return Promise.reject(error)
+  } catch (err) {
+    const error = err as Error
+    console.error(error.message);
+
+    return {
+      error: {
+        status: 500,
+        message: error.message,
+      },
+    };
   }
-}
+};
