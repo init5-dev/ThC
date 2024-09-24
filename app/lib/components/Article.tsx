@@ -1,13 +1,12 @@
 'use client'
 
-import MarkdownPreview from '@uiw/react-markdown-preview'
+import Markdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import SocialShare from './SocialShare'
-import { formatDate } from '../actions/string-manipulation'
 import Breadcrumb from './Breadcrumb'
 import Image from 'next/image'
-import PostCard from './PostCard'
 
 export interface ArticleProps {
   title: string
@@ -28,16 +27,16 @@ const mdStyle = {
   color: 'oklch(var(--nc))',
   table: {
     backgroundColor: 'transparent',
-    borderCollapse: 'collapse',
+    borderCollapse: 'collapse'
   },
   th: {
     backgroundColor: 'transparent',
-    border: '1px solid currentColor',
+    border: '1px solid currentColor'
   },
   td: {
     backgroundColor: 'transparent',
-    border: '1px solid currentColor',
-  },
+    border: '1px solid currentColor'
+  }
 }
 
 const Article = ({
@@ -84,29 +83,48 @@ const Article = ({
         <meta name='description' content={metadescription} />
       </header>
       <SocialShare postUrl={currentUrl} />
-      <Image
-        src={coverImgUrl}
-        alt={coverImgAlt}
-        height={screenSize.height}
-        width={screenSize.width}
-        className='my-8 lg:px-20'
-      />
       <section className='my-8'>
-        <MarkdownPreview
-          source={content}
-          className='lg:px-20 pb-4 text-justify'
-          style={mdStyle}
-        />
-        {/* <MarkdownPreview
-          source={`Publicado el ${formatDate(
-            created
-          )}\n\nEditado el ${formatDate(updated)}`}
-          className='lg:px-20 pb-4 text-justify'
-          style={{
-            ...mdStyle,
-            textAlign: 'right'
+        <Markdown
+          remarkPlugins={[remarkGfm]}
+          components={{
+            a (props) {
+              const { node, ...rest } = props
+              return <a target='_blank' rel='noopener noreferrer' className="link link-primary" {...rest} />
+            },
+
+            p (props) {
+              const { node, ...rest } = props
+              return (
+                <p
+                  style={{
+                    marginTop: 8,
+                    marginBottom: 8,
+                    textAlign: 'justify'
+                  }}
+                  {...rest}
+                />
+              )
+            },
+
+            h2 (props) {
+              const { node, ...rest } = props
+              return (
+                <h2
+                  style={{ fontSize: 24, marginTop: 24, fontWeight: 'bold' }}
+                  {...rest}
+                />
+              )
+            },
+             
+            img (props) {
+              const {node, ...rest} = props
+              
+              return <img {...rest} className="w-full my-8" />
+            }
           }}
-        /> */}
+        >
+          {content}
+        </Markdown>
       </section>
       <SocialShare postUrl={currentUrl} />
       <div className='flex gap-4 my-8 justify-center'>
