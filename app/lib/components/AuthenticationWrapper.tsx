@@ -1,21 +1,23 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import useAuth from '../hooks/useAuth'
+import { useEffect, useState } from 'react'
+import { getCookie } from 'cookies-next'
 
 const AuthenticationWrapper = ({
   children
 }: Readonly<{
   children: React.ReactNode
 }>) => {
-  const { authenticated } = useAuth()
   const router = useRouter()
 
-  if (!authenticated) {
-    router.push('/login')
-  }
+  const accessToken = getCookie('access-token')
 
-  return <>{children}</>
+  if (!accessToken) {
+    router.push('/login')
+  } else {
+    return <>{children}</>
+  }
 }
 
 export default AuthenticationWrapper
