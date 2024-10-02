@@ -2,33 +2,47 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import User from "@/app/lib/mongoose/models/User"
 import { connectDb } from "@/app/lib/mongoose/connect"
 import bcrypt from 'bcrypt'
-import { setCookie } from 'cookies-next'
+import { NextRequest, NextResponse } from "next/server"
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  await connectDb()
+export async function POST(req: NextRequest, res: NextApiResponse) {
+  
 
   if (req.method === 'POST') {
-    const { email, password } = req.body;
+  
+    const { email, password } = await req.json();
 
     try {
+
+      await connectDb()
+
       const user = await User.findOne({ email });
+
+      console.log('USER:', user)
       if (!user) {
-        return res.status(400).json({ message: 'Invalid email or password' });
+        console.log('Invalid email or password.')
+        return NextResponse.json({ status: 400, message: 'Invalid email or password' });
       }
 
-      const isMatch = await bcrypt.compare(password, user.password);
+      console.log('P&UP', password, user.password)
+
+      // const isMatch = await bcrypt.compare(password.trim(), user.password);
+      const isMatch = await bcrypt.compare(password.trim(), user.password);
+
+      console.log('M:', isMatch)
+
       if (!isMatch) {
-        return res.status(400).json({ message: 'Invalid email or password' });
+        console.log('Invalid email or password')
+        return NextResponse.json({ status: 400, message: 'Invalid email or password XXXX' });
       }
 
-      setCookie('session', user._id, { req, res, maxAge: 60 * 60 * 24, httpOnly: true });
+      console.log('Login successful')
 
-      return res.status(200).json({ message: 'Login successful' });
+      return NextResponse.json({ status: 200, message: 'Login successful', accessToken: user._id });
 
     } catch (error) {
-      return res.status(500).json({ message: 'Server error' });
+      return NextResponse.json({ status: 500, message: (error as Error).message });
     }
   } else {
-    return res.status(405).json({ message: 'Method not allowed' });
+    return NextResponse.json({ status: 405, message: 'Method not allowed' });
   }
 }
