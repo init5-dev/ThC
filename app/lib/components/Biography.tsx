@@ -29,12 +29,15 @@ const Biography = ({
   content
 }: BiographyProps) => {
   const [screenSize, setScreenSite] = useState({ width: 0, height: 0 })
+  const [postUrl, setPostUrl] = useState('/')
 
   useEffect(() => {
     setScreenSite({
       width: window.innerWidth,
       height: window.innerHeight
     })
+
+    setPostUrl(window.location.href)
   }, [])
 
   return (
@@ -66,7 +69,7 @@ const Biography = ({
           style={mdStyle}
         />
       </section>
-      <SocialShare postUrl={window.location.href} />
+      <SocialShare postUrl={postUrl} />
     </article>
   )
 }
