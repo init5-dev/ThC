@@ -1,67 +1,58 @@
-import { NextRequest, NextResponse } from "next/server"
-import GitFile from "./lib/gitfile"
-import handleError from "./lib/handle-error"
+import { NextRequest, NextResponse } from "next/server";
+import Post from "./lib/post";
+import handleError from "./lib/handle-error";
 
 export const POST = async (request: NextRequest) => {
   try {
-    const { path } = await request.json()
+    const { path } = await request.json();
 
-    const file = new GitFile({
-      auth: process.env.PUBLIC_GITSTOR_AUTH || '',
-      owner: process.env.PUBLIC_GITSTOR_OWNER || '',
-      repo: process.env.PUBLIC_GITSTOR_REPO || '',
-      author: process.env.PUBLIC_GITSTOR_AUTHOR || '',
-      email: process.env.PUBLIC_GITSTOR_EMAIL || '',
-      apiVersion: process.env.PUBLIC_GITSTOR_API_VERSION || ''
-    })
+    const post = await Post.read(path)
 
-    const response = await file.read(path)
+    const response = {
+      id: post.id,
+      title: post.title,
+      author: post.author,
+      metadescription: post.metadescription,
+      category: post.category,
+      content: post.content,
+      createdAt: post.createdAt,
+      updatedAt: post.updatedAt,
+    };
 
-    return NextResponse.json(response)
+    return NextResponse.json(response);
   } catch (error) {
-    return handleError(error)
+    return handleError(error);
   }
-}
+};
 
 export const PUT = async (req: NextRequest) => {
   try {
-    const { path, content } = await req.json()
+    const { title, author, metadescription, category, content } = await req.json();
 
-    const file = new GitFile({
-      auth: process.env.PUBLIC_GITSTOR_AUTH || '',
-      owner: process.env.PUBLIC_GITSTOR_OWNER || '',
-      repo: process.env.PUBLIC_GITSTOR_REPO || '',
-      author: process.env.PUBLIC_GITSTOR_AUTHOR || '',
-      email: process.env.PUBLIC_GITSTOR_EMAIL || '',
-      apiVersion: process.env.PUBLIC_GITSTOR_API_VERSION || ''
-    })
+    const post = new Post(
+      title,
+      author,
+      content,
+      metadescription,
+      category
+    );
 
-    const response = await file.createOrUpdate(path, content)
+    await post.save();
 
-    return NextResponse.json(response)
-
+    return NextResponse.json({ message: "Post saved successfully." });
   } catch (error) {
-    return handleError(error)
+    return handleError(error);
   }
-}
+};
 
 export const DELETE = async (request: NextRequest) => {
   try {
-    const { path } = await request.json()
+    const { postname } = await request.json();
 
-    const file = new GitFile({
-      auth: process.env.PUBLIC_GITSTOR_AUTH || '',
-      owner: process.env.PUBLIC_GITSTOR_OWNER || '',
-      repo: process.env.PUBLIC_GITSTOR_REPO || '',
-      author: process.env.PUBLIC_GIGITSTOR_AUTHTSTOR_AUTHOR || '',
-      email: process.env.PUBLIC_GITSTOR_EMAIL || '',
-      apiVersion: process.env.PUBLIC_GITSTOR_API_VERSION || ''
-    })
+    await Post.delete(postname);
 
-    const response = await file.delete(path)
-
-    return NextResponse.json(response)
+    return NextResponse.json({ message: "Post deleted successfully." });
   } catch (error) {
-    return handleError(error)
+    return handleError(error);
   }
-}
+};
