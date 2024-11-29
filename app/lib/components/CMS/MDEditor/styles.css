@@ -1,0 +1,12 @@
+.mdeditor {
+  background-color: #222; 
+  height: 480px;
+}
+
+/* .mdeditor div {
+  height: 580px;
+} */
+
+.mdeditor p {
+  color: white;
+}

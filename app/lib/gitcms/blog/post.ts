@@ -1,6 +1,6 @@
 import path from "path";
 import { nanoid } from "nanoid";
-import GitFile from "./gitfile";
+import GitFile from "../gitstore/gitfile";
 import { GITSTOR_CONFIG, now, postnameToTitle, titleToPostname } from "./post-utils";
 
 interface IPost {

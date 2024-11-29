@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import Post from "./lib/post";
-import handleError from "./lib/handle-error";
+import {Post} from "../../lib/gitcms/blog/";
+import handleError from "../../lib/gitcms/utils/handle-error";
 
 export const POST = async (request: NextRequest) => {
   try {
